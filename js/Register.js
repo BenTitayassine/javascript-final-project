@@ -60,3 +60,15 @@ function Ajouter() {
     localStorage.setItem('users', JSON.stringify(utilisateurs));
     window.location.assign("file:///C:/Users/chames/Desktop/Yassine/Java%20Script/Exercices/Projet%20JS/Login.html");
 }
+function Afficher() {
+    var firstName = document.getElementById("fName").value;
+    var lastName = document.getElementById("lName").value;
+    var mail = document.getElementById("mail").value;
+    var password = document.getElementById("pass").value;
+    var passwordConfirm = document.getElementById("cPass").value;
+    document.getElementById("Cat").hidden = true;
+    document.getElementById("Prod").hidden = true;
+    document.getElementById("Allp").hidden = true;
+    document.getElementById("Adm").hidden = true;
+}
+Afficher()

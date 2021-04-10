@@ -48,6 +48,8 @@ function add(){
 function load(){
     let Produitss = JSON.parse(localStorage.getItem("NDP"))|| [];
     let data = '';
+    document.getElementById("Reg").hidden = true;
+    document.getElementById("Log").hidden = true;
     document.getElementById("zee").hidden = false;
     document.getElementById("Saveupdate").hidden = true;
 

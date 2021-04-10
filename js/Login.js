@@ -26,6 +26,15 @@ function Login(){
     if(login == undefined){
         alert('utilisateur non disponible');
     }else{
-        window.location.assign("file:///C:/Users/chames/Desktop/Yassine/Java%20Script/Exercices/Projet%20JS/All%20product.html");
+        window.location.assign("file:///C:/Users/chames/Desktop/Yassine/Java%20Script/Exercices/Projet%20JS/Add%20category.html");
     }
 }
+function Afficher() {
+    var mail = document.getElementById("E-mail").value;
+    var password = document.getElementById("password").value;
+    document.getElementById("Cat").hidden = true;
+    document.getElementById("Prod").hidden = true;
+    document.getElementById("Allp").hidden = true;
+    document.getElementById("Adm").hidden = true;
+}
+Afficher()

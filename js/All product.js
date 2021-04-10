@@ -1,6 +1,8 @@
 function Afficher() {
     let Produitss = JSON.parse(localStorage.getItem("NDP")) || [];
     let data = '';
+    document.getElementById("Reg").hidden = true;
+    document.getElementById("Log").hidden = true;
 
     Produitss.forEach((PRD, i) => {
         data += `<div class="col-4 mt-2">
@@ -15,6 +17,4 @@ function Afficher() {
     });
     document.getElementById('card').innerHTML = data;
 }
-
-
 Afficher()
