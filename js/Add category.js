@@ -80,7 +80,6 @@ function clearData() {
     document.getElementById("Titre").value = "";
     document.getElementById("discription").value = "";
 }
-
-function security() {
-    
+function LogOut() {
+    window.location.href = "Login.html"
 }

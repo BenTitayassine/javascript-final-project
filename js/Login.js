@@ -26,7 +26,7 @@ function Login(){
     if(login == undefined){
         alert('utilisateur non disponible');
     }else{
-        window.location.assign("file:///C:/Users/chames/Desktop/Yassine/Java%20Script/Exercices/Projet%20JS/Add%20category.html");
+        window.location.href = "Add category.html";
     }
 }
 function Afficher() {

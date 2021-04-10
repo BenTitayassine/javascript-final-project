@@ -18,3 +18,6 @@ function Afficher() {
     document.getElementById('card').innerHTML = data;
 }
 Afficher()
+function LogOut() {
+    window.location.href = "Login.html"
+}

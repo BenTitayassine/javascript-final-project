@@ -5,3 +5,6 @@ function Afficher() {
     document.getElementById("Log").hidden = true;
 }
 Afficher()
+function LogOut() {
+    window.location.href = "Login.html"
+}

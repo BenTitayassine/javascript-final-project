@@ -110,3 +110,6 @@ function ClearData() {
     document.getElementById("category").value = "";
     // document.getElementById("taswira").value = "";
 }
+function LogOut() {
+    window.location.href = "Login.html"
+}
