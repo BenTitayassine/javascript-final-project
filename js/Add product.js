@@ -7,26 +7,27 @@ function showCategorie(){
     });
         document.getElementById('category').innerHTML = data;
 }
-function  encodeImageFileAsURL(element) {
-    var file = element.files[0];
-    var reader = new FileReader();
-    
-    return new Promise((resolve, reject) => {
-        reader.onloadend = function() {
-            resolve(reader.result)
-            }
-            
-    });
+function  encodeImageFileAsURL(image) {
+    var file = image.files[0];
+   if(file)
+   {
+        var reader = new FileReader();
+        reader.readAsDataURL(file)
+        return new Promise((resolve, reject) => {
+            reader.onloadend = () => { resolve(reader.result); }
+        });
+   }else{
+       return "";
+   }
 }
-function add(){
-    // alert('heyyyy')
+async function add(){
     let NomDuProd = document.getElementById("NDP").value;
     let discription = document.getElementById("discription").value;
     let Categorie = document.getElementById("category").value;
-    let Taswira = document.getElementById("taswira");
-    // let Taswira = document.getElementById("srcImg").value;
-    // alert(Taswira.value)
-    // let photo = await encodeImageFileAsURL(taswira);
+    let Taswira = document.getElementById("srcImg");
+    
+    let photo = await encodeImageFileAsURL(Taswira);
+
     let PRD = JSON.parse(localStorage.getItem("NDP")) || [];
 
 
@@ -35,10 +36,9 @@ function add(){
         NomDuProd : NomDuProd,
         discription : discription,
         Categorie : Categorie,
-        photo : "photo",
+        photo : photo,
         srcImg: Taswira
     };
-
     PRD.push(Produit);
     localStorage.setItem('NDP', JSON.stringify(PRD));  
     ClearData(); 
