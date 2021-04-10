@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 
-<body onload="load()" style="background-color: grey;">
+<body onload="load()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand"
             href="file:///C:/Users/chames/Desktop/Yassine/Java%20Script/Exercices/Projet%20JS/Register.html">Register</a>
@@ -34,36 +34,39 @@
             <div class="offset-1 col-3">
                 <div class="form-group">
                     <label for="text">Titre</label>
-                    <input type="text" class="form-control" id="Titre">
+                    <input type="text" class="form-control" id="Titre" placeholder="tapez le titre">
                 </div>
                 <div class="form-group">
                     <label for="text-area">Discription</label>
-                    <textarea class="form-control" rows="3" id="discription"></textarea>
+                    <textarea class="form-control" rows="3" id="discription" placeholder="tapez la discription"></textarea>
                 </div>
                 <div class="form-group">
-                    <input type="button" value="Ajouter" class="btn btn-success btn-block" onclick="ajouter()">
+                    <input type="button" value="Ajouter" id="zee" class="btn btn-success btn-block" onclick="ajouter()">
                 </div>
                 <div>
                     <input type="hidden" id="index">
                     <input type="button" value="Modifier" id="Saveupdate" class="btn btn-success btn-block"
                         onclick="Saveupdate()">
                 </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="col">Titre</th>
-                            <th class="col">Discription</th>
-                            <th class="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table">
 
-                    </tbody>
-                </table>
             </div>
             <div class="offset-2 col-3">
                 <img src="images/image.png" style="width: 500px; height: 300px; padding-right: 70px;">
             </div>
+        </div>
+        <div class="row">
+            <table class="table table-hover table-stripped">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Discription</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table">
+
+                </tbody>
+            </table>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

@@ -23,8 +23,8 @@ function add(){
     let NomDuProd = document.getElementById("NDP").value;
     let discription = document.getElementById("discription").value;
     let Categorie = document.getElementById("category").value;
-    // let Taswira = document.getElementById("taswira");
-    let Taswira = document.getElementById("srcImg").value;
+    let Taswira = document.getElementById("taswira");
+    // let Taswira = document.getElementById("srcImg").value;
     // alert(Taswira.value)
     // let photo = await encodeImageFileAsURL(taswira);
     let PRD = JSON.parse(localStorage.getItem("NDP")) || [];
@@ -40,13 +40,16 @@ function add(){
     };
 
     PRD.push(Produit);
-    localStorage.setItem('NDP', JSON.stringify(PRD));   
+    localStorage.setItem('NDP', JSON.stringify(PRD));  
+    ClearData(); 
     load();
 }
 
 function load(){
     let Produitss = JSON.parse(localStorage.getItem("NDP"))|| [];
     let data = '';
+    document.getElementById("zee").hidden = false;
+    document.getElementById("Saveupdate").hidden = true;
 
     Produitss.forEach((PRD, i) => {
         data += `<div class="col-4 mt-2">
@@ -73,6 +76,8 @@ function supprimer(i){
 function modifier(i){
     let PRD = JSON.parse(localStorage.getItem("NDP"))|| [];
     let PRDaModifier = PRD[i];
+    document.getElementById("zee").hidden = true;
+    document.getElementById("Saveupdate").hidden = false;
     document.getElementById("NDP").value = PRDaModifier.NomDuProd;
     document.getElementById("discription").value = PRDaModifier.discription;
     document.getElementById("category").value = PRDaModifier.Categorie;
@@ -94,5 +99,12 @@ function Saveupdate(){
     };
     PRD.splice(i,1,Produit);
     localStorage.setItem('NDP',JSON.stringify(PRD));
+    ClearData();
     load();
+}
+function ClearData() {
+    document.getElementById("NDP").value = "";
+    document.getElementById("discription").value = "";
+    document.getElementById("category").value = "";
+    // document.getElementById("taswira").value = "";
 }
