@@ -26,6 +26,7 @@ function Login(){
     if(login == undefined){
         alert('utilisateur non disponible');
     }else{
+        localStorage.setItem("session", JSON.stringify(login));
         window.location.href = "Add category.html";
     }
 }
