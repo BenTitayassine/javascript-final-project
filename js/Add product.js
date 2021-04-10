@@ -36,8 +36,7 @@ async function add(){
         NomDuProd : NomDuProd,
         discription : discription,
         Categorie : Categorie,
-        photo : photo,
-        srcImg: Taswira
+        photo : photo
     };
     PRD.push(Produit);
     localStorage.setItem('NDP', JSON.stringify(PRD));  
@@ -56,7 +55,7 @@ function load(){
     Produitss.forEach((PRD, i) => {
         data += `<div class="col-4 mt-2">
         <div class="card">
-            <img class="card-img-top" src="${PRD.srcImg}" alt="car">
+            <img class="card-img-top" src="${PRD.photo}" alt="car">
             <div class="card-body">
                 <h5 class="card-title">${PRD.NomDuProd}</h5>
                 <p class="card-text">${PRD.discription}</p>
@@ -85,19 +84,29 @@ function modifier(i){
     document.getElementById("category").value = PRDaModifier.Categorie;
     document.getElementById("index").value = i;
 }
-function Saveupdate(){
+async function Saveupdate(){
     let PRD = JSON.parse(localStorage.getItem("NDP"))|| [];
     let i = document.getElementById("index").value;
     let NomDuProd = document.getElementById("NDP").value;
     let discription = document.getElementById("discription").value;
     let Categorie = document.getElementById("category").value;
+    let photo;
+    let Taswira = document.getElementById("srcImg");
+
+    if(Taswira.files[0])
+    {
+        photo = await encodeImageFileAsURL(Taswira);
+
+    }else{
+        photo = PRD[i].photo;
+    }
 
     let Produit = {
         id : PRD.length,
         NomDuProd : NomDuProd,
         discription : discription,
         Categorie : Categorie,
-        photo : "photo"
+        photo : photo
     };
     PRD.splice(i,1,Produit);
     localStorage.setItem('NDP',JSON.stringify(PRD));
@@ -108,5 +117,5 @@ function ClearData() {
     document.getElementById("NDP").value = "";
     document.getElementById("discription").value = "";
     document.getElementById("category").value = "";
-    // document.getElementById("taswira").value = "";
+    document.getElementById("srcImg").value = "";
 }
