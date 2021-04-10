@@ -20,6 +20,9 @@ function ajouter(){
 function load(){
     let Categoriess = JSON.parse(localStorage.getItem("Titre"))|| [];
     let data = '';
+    document.getElementById("Reg").hidden = true;
+    document.getElementById("Log").hidden = true;
+    
     document.getElementById("zee").hidden = false;
     document.getElementById("Saveupdate").hidden = true;
 
@@ -76,4 +79,8 @@ function Saveupdate(){
 function clearData() {
     document.getElementById("Titre").value = "";
     document.getElementById("discription").value = "";
+}
+
+function security() {
+    
 }
